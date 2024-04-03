@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+/* eslint-disable no-unused-vars */
+/* import { useRef, useState } from "react";
 import logoImg from "./assets/logo.png";
 import Modal from "./components/Modal.jsx";
 import Places from "./components/Places";
@@ -37,6 +38,40 @@ function App() {
           places={places}
           fallbackText="Sorting places by distance..."
           onSelectPlace={openModal}
+        />
+      </main>
+    </>
+  );
+}
+
+export default App;
+*/
+
+import { useState } from "react";
+import Places from "./components/Places";
+import { AVAILABLE_PLACES } from "./data";
+
+function App() {
+  const [selectedPlaces, setSelectedPlaces] = useState([]);
+
+  function handlePlaceSelect(placeId) {
+    setSelectedPlaces((prevPlaces) => {
+      return [...prevPlaces];
+    });
+  }
+
+  return (
+    <>
+      <header>
+        <img />
+        <h1>Place Picker</h1>
+        <p>Create your places to visit.</p>
+      </header>
+      <main>
+        <Places
+          title="Available Places"
+          fallbackText="Loading"
+          places={AVAILABLE_PLACES}
         />
       </main>
     </>
